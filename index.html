@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>3D Expanding Circles Animation</title>
+  <title>3D Rotating Product Card</title>
   <style>
     body {
       margin: 0;
@@ -10,48 +10,58 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: radial-gradient(circle, #000, #1a1a1a);
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      font-family: Arial, sans-serif;
       overflow: hidden;
     }
 
-    .circle-container {
-      position: relative;
+    .card {
       width: 300px;
-      height: 300px;
+      height: 400px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      transform-style: preserve-3d;
+      animation: rotate 8s linear infinite;
+      position: relative;
+      overflow: hidden;
     }
 
-    .circle {
-      position: absolute;
-      border: 2px solid #00f2ff;
-      border-radius: 50%;
+    .card img {
       width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
-      transform: scale(0);
-      opacity: 0.8;
-      animation: expand 3s infinite ease-out;
+      height: 60%;
+      object-fit: cover;
+      border-top-left-radius: 20px;
+      border-top-right-radius: 20px;
     }
 
-    .circle:nth-child(2) {
-      animation-delay: 1s;
+    .card h2 {
+      text-align: center;
+      color: #fff;
+      margin: 15px 0 0;
+      font-size: 24px;
     }
 
-    .circle:nth-child(3) {
-      animation-delay: 2s;
+    .card p {
+      text-align: center;
+      color: #ccc;
+      font-size: 16px;
+      padding: 0 15px;
     }
 
-    @keyframes expand {
-      0% { transform: scale(0); opacity: 1; }
-      100% { transform: scale(1.5); opacity: 0; }
+    @keyframes rotate {
+      0% { transform: rotateY(0deg); }
+      100% { transform: rotateY(360deg); }
     }
   </style>
 </head>
 <body>
-  <div class="circle-container">
-    <div class="circle"></div>
-    <div class="circle"></div>
-    <div class="circle"></div>
+  <div class="card">
+    <img src="https://picsum.photos/300/250?random=1" alt="Product Image">
+    <h2>Premium Product</h2>
+    <p>3D rotating product showcase with a cinematic glow effect.</p>
   </div>
 </body>
 </html>
